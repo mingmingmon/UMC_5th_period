@@ -9,13 +9,14 @@ import umc.study.domain.enums.SocialType;
 import javax.persistence.*;
 import java.util.Date;
 
-public class FoodCategory extends BaseEntity {
+
     @Entity
     @Getter
     @Builder
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     @AllArgsConstructor
-    public class foodCategory {
+
+    public class FoodCategory extends BaseEntity {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,4 +26,4 @@ public class FoodCategory extends BaseEntity {
 
 
     }
-}
+
