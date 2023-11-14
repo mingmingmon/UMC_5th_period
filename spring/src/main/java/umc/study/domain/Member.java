@@ -25,21 +25,33 @@ public class Member extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private Long password;
+
+    @Column(nullable = false, length = 20)
     private String name;
+
+    @Column(nullable = false, length = 40)
     private String address;
+
     private Date birth_date;
+
+    @Column(nullable = false, length = 50)
     private String email;
+
     private Integer point;
+
     private LocalDate inactiveDate;
 
     @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "VARCHAR(10)")
     private Gender gender;
 
     @Enumerated(EnumType.STRING)
     private SocialType socialType;
 
     @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "VARCHAR(15) DEFAULT 'ACTIVE'")
     private MemberStatus status;
 
     @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
