@@ -1,6 +1,7 @@
 package umc.study.domain;
 
 import lombok.*;
+import umc.study.domain.common.BaseEntity;
 import umc.study.domain.enums.Gender;
 import umc.study.domain.enums.MemberStatus;
 import umc.study.domain.enums.SocialType;
@@ -8,7 +9,7 @@ import umc.study.domain.enums.SocialType;
 import javax.persistence.*;
 import java.util.Date;
 
-public class FoodCategory {
+public class FoodCategory extends BaseEntity {
     @Entity
     @Getter
     @Builder
