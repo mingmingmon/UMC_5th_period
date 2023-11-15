@@ -29,4 +29,8 @@ public class Store extends BaseEntity {
     private String address;
 
     private Float score;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ceo_id")
+    private Ceo ceo;
 }
