@@ -2,20 +2,18 @@ package umc.study.domain;
 
 import lombok.*;
 import umc.study.domain.common.BaseEntity;
-import umc.study.domain.enums.Gender;
-import umc.study.domain.enums.MemberStatus;
-import umc.study.domain.enums.SocialType;
 
-import javax.persistence.*;
 import java.math.BigInteger;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.*;
 
 @Entity
 @Getter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Review extends BaseEntity {
+public class Term extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,15 +23,11 @@ public class Review extends BaseEntity {
     private String title;
 
     @Column(nullable = false, columnDefinition = "VARCHAR(1000)")
-    private String content;
+    private String body;
 
-    private Float star_point;
+    @Column(nullable = false, columnDefinition = "VARCHAR(5)")
+    private Boolean essential;
 
-/*
-@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
-    private Member member;
-*/
-
-
+  /*  @OneToMany(mappedBy = "term", cascade = CascadeType.ALL)
+    private List<TermAgreement> termAgreementList = new ArrayList<>();*/
 }

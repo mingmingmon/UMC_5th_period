@@ -2,7 +2,6 @@ package umc.study.domain;
 
 import lombok.*;
 import umc.study.domain.common.BaseEntity;
-import umc.study.domain.mapping.MemberMission;
 
 import javax.persistence.*;
 import java.math.BigInteger;
@@ -19,18 +18,23 @@ public class Mission extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
 
-    private Integer reward;
+    @Column(nullable = false, columnDefinition = "VARCHAR(50)")
+    private String title;
 
+    @Column(nullable = false, columnDefinition = "VARCHAR(50)")
+    private String content;
+
+    @Column(nullable = false, columnDefinition = "VARCHAR(10)")
     private LocalDate deadline;
-
-    private String missionSpec;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
     private Store store;
 
-    @OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
-    private List<MemberMission> memberMissionList = new ArrayList<>();
+
+/*  @OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
+    private List<MemberMission> memberMissionList = new ArrayList<>();*/
+
 }
