@@ -10,6 +10,7 @@ import umc.study.domain.mapping.MemberMission;
 import umc.study.domain.mapping.MemberPrefer;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,11 +25,12 @@ public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private BigInteger id;
 
+    @Column(columnDefinition = "VARCHAR(20)")
     private Long password;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, columnDefinition = "VARCHAR(20)")
     private String name;
 
     @Column(nullable = false, length = 40)
@@ -36,7 +38,7 @@ public class Member extends BaseEntity {
 
     private Date birth_date;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, columnDefinition = "VARCHAR(50)")
     private String email;
 
     private Integer point;
@@ -48,6 +50,7 @@ public class Member extends BaseEntity {
     private Gender gender;
 
     @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "VARCHAR(50)")
     private SocialType socialType;
 
     @Enumerated(EnumType.STRING)

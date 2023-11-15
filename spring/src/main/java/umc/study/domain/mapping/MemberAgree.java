@@ -4,12 +4,8 @@ import lombok.*;
 import umc.study.domain.Member;
 import umc.study.domain.Terms;
 import umc.study.domain.common.BaseEntity;
-import umc.study.domain.enums.Gender;
-import umc.study.domain.enums.MemberStatus;
-import umc.study.domain.enums.SocialType;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Getter
