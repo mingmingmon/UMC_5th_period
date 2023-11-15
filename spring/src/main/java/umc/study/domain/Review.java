@@ -7,6 +7,7 @@ import umc.study.domain.enums.MemberStatus;
 import umc.study.domain.enums.SocialType;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.util.Date;
 
 @Entity
@@ -21,6 +22,10 @@ public class Review extends BaseEntity {
     private Long id;
 
     private String title;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     private Float score;
 }

@@ -6,7 +6,6 @@ import umc.study.domain.enums.Gender;
 import umc.study.domain.enums.MemberStatus;
 import umc.study.domain.enums.MissionStatus;
 import umc.study.domain.enums.SocialType;
-
 import javax.persistence.*;
 import java.util.Date;
 

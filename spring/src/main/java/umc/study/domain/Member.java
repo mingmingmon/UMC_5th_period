@@ -5,15 +5,10 @@ import umc.study.domain.common.BaseEntity;
 import umc.study.domain.enums.Gender;
 import umc.study.domain.enums.MemberStatus;
 import umc.study.domain.enums.SocialType;
-import umc.study.domain.mapping.MemberAgree;
-import umc.study.domain.mapping.MemberMission;
-import umc.study.domain.mapping.MemberPrefer;
 
 import javax.persistence.*;
-import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -25,47 +20,44 @@ public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
 
-    @Column(columnDefinition = "VARCHAR(20)")
-    private Long password;
-
-    @Column(nullable = false, columnDefinition = "VARCHAR(20)")
+    @Column(nullable = false, length = 20)
     private String name;
 
     @Column(nullable = false, length = 40)
     private String address;
 
-    private Date birth_date;
-
-    @Column(nullable = false, columnDefinition = "VARCHAR(50)")
-    private String email;
-
-    private Integer point;
-
-    private LocalDate inactiveDate;
+    @Column(nullable = false, length = 40)
+    private String specAddress;
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(10)")
     private Gender gender;
 
     @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "VARCHAR(50)")
     private SocialType socialType;
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(15) DEFAULT 'ACTIVE'")
     private MemberStatus status;
 
-    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
+    private LocalDate inactiveDate;
+
+    @Column(nullable = false, length = 50)
+    private String email;
+
+    private Integer point;
+
+  /*  @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<MemberAgree> memberAgreeList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<MemberPrefer> memberPreferList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Review> reviewList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
-    private List<MemberMission> memberMissionList = new ArrayList<>();
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    private List<MemberMission> memberMissionList = new ArrayList<>();*/
 }
