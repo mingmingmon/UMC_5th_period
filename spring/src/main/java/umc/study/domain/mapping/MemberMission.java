@@ -10,6 +10,7 @@ import umc.study.domain.enums.MemberStatus;
 import umc.study.domain.enums.MissionStatus;
 import umc.study.domain.enums.SocialType;
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.util.Date;
 
 @Entity
@@ -21,7 +22,7 @@ public class MemberMission extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private BigInteger id;
 
     @Enumerated(EnumType.STRING)
     private MissionStatus status;

@@ -10,8 +10,10 @@ import umc.study.domain.mapping.MemberMission;
 import umc.study.domain.mapping.MemberPrefer;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -23,34 +25,41 @@ public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private BigInteger id;
+
+    @Column(nullable = false, columnDefinition = "VARCHAR(20)")
+    private String password;
 
     @Column(nullable = false, length = 20)
     private String name;
-
-    @Column(nullable = false, length = 40)
-    private String address;
-
-    @Column(nullable = false, length = 40)
-    private String specAddress;
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(10)")
     private Gender gender;
 
-    @Enumerated(EnumType.STRING)
-    private SocialType socialType;
+    @Column(nullable = false, columnDefinition = "VARCHAR(50)")
+    private String address;
+
+    private Date brith_date;
+
+    private Integer point;
+
+    @Column(nullable = false, columnDefinition = "VARCHAR(15)")
+    private String Phone_number;
+
+    @Column(nullable = false, columnDefinition = "VARCHAR(50)")
+    private String email;
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(15) DEFAULT 'ACTIVE'")
     private MemberStatus status;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, columnDefinition = "VARCHAR(50)")
+    private SocialType socialType;
+
     private LocalDate inactiveDate;
 
-    @Column(nullable = false, length = 50)
-    private String email;
-
-    private Integer point;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<MemberAgree> memberAgreeList = new ArrayList<>();
@@ -63,4 +72,5 @@ public class Member extends BaseEntity {
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<MemberMission> memberMissionList = new ArrayList<>();
+
 }
