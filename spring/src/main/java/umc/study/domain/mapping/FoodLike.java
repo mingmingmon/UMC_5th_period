@@ -11,10 +11,18 @@ import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.Date;
 
+
+@Entity
+@Getter
+@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+
 public class FoodLike {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(nullable = false, columnDefinition = "BIGINT")
+    private BigInteger id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")

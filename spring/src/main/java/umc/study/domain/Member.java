@@ -5,6 +5,9 @@ import umc.study.domain.common.BaseEntity;
 import umc.study.domain.enums.Gender;
 import umc.study.domain.enums.MemberStatus;
 import umc.study.domain.enums.SocialType;
+import umc.study.domain.mapping.FoodLike;
+import umc.study.domain.mapping.MissionProgress;
+import umc.study.domain.mapping.TermAgreement;
 
 import javax.persistence.*;
 import java.math.BigInteger;
@@ -22,7 +25,8 @@ public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
+    @Column(nullable = false, columnDefinition = "BIGINT")
+    private BigInteger user_id;
 
     @Column(nullable = false, columnDefinition = "VARCHAR(20)")
     private String password;
@@ -58,16 +62,15 @@ public class Member extends BaseEntity {
     private LocalDate inactiveDate;
 
 
-    /*@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<TermAgreement> termAgreementList = new ArrayList<>();
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-    private List<MemberPrefer> memberPreferList = new ArrayList<>();
+    private List<FoodLike> foodLikeList = new ArrayList<>();
+
+/*    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    private List<Review> reviewList = new ArrayList<>();*/
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-    private List<Review> reviewList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-    private List<MemberMission> memberMissionList = new ArrayList<>();
-*/
+    private List<MissionProgress> memberMissionList = new ArrayList<>();
 }

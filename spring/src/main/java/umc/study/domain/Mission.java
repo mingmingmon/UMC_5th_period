@@ -2,6 +2,7 @@ package umc.study.domain;
 
 import lombok.*;
 import umc.study.domain.common.BaseEntity;
+import umc.study.domain.mapping.MissionProgress;
 
 import javax.persistence.*;
 import java.math.BigInteger;
@@ -18,7 +19,8 @@ public class Mission extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(nullable = false, columnDefinition = "BIGINT")
+    private BigInteger id;
 
     @Column(nullable = false, columnDefinition = "VARCHAR(50)")
     private String title;
@@ -34,7 +36,7 @@ public class Mission extends BaseEntity {
     private Store store;
 
 
-/*  @OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
-    private List<MemberMission> memberMissionList = new ArrayList<>();*/
+  @OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
+    private List<MissionProgress> missionProgressList = new ArrayList<>();
 
 }
