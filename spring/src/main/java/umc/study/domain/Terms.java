@@ -2,6 +2,7 @@ package umc.study.domain;
 
 import lombok.*;
 import umc.study.domain.common.BaseEntity;
+import umc.study.domain.mapping.MemberAgree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,6 @@ public class Terms extends BaseEntity {
 
     private Boolean optional;
 
-    /*@OneToMany(mappedBy = "terms", cascade = CascadeType.ALL)
-    private List<MemberAgree> memberAgreeList = new ArrayList<>();*/
+    @OneToMany(mappedBy = "terms", cascade = CascadeType.ALL)
+    private List<MemberAgree> memberAgreeList = new ArrayList<>();
 }
