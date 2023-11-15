@@ -30,11 +30,9 @@ public class Review extends BaseEntity {
 
     private Float star_point;
 
-/*
-@ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
-*/
 
 
 }

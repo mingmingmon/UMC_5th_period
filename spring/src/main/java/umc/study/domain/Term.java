@@ -2,7 +2,6 @@ package umc.study.domain;
 
 import lombok.*;
 import umc.study.domain.common.BaseEntity;
-import umc.study.domain.mapping.TermAgreement;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -30,6 +29,6 @@ public class Term extends BaseEntity {
     @Column(nullable = false, columnDefinition = "VARCHAR(5)")
     private Boolean essential;
 
-    @OneToMany(mappedBy = "term", cascade = CascadeType.ALL)
-    private List<TermAgreement> termAgreementList = new ArrayList<>();
+    /*@OneToMany(mappedBy = "term", cascade = CascadeType.ALL)
+    private List<TermAgreement> termAgreementList = new ArrayList<>();*/
 }

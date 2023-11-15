@@ -26,7 +26,7 @@ public class Member extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, columnDefinition = "BIGINT")
-    private BigInteger user_id;
+    private BigInteger id;
 
     @Column(nullable = false, columnDefinition = "VARCHAR(20)")
     private String password;
@@ -68,9 +68,12 @@ public class Member extends BaseEntity {
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<FoodLike> foodLikeList = new ArrayList<>();
 
-/*    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-    private List<Review> reviewList = new ArrayList<>();*/
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    private List<Review> reviewList = new ArrayList<>();
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<MissionProgress> memberMissionList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    private List<Qna> QnaList = new ArrayList<>();
 }

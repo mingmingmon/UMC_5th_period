@@ -1,5 +1,6 @@
 package umc.study.domain.mapping;
 
+
 import lombok.*;
 import umc.study.domain.Member;
 import umc.study.domain.Term;
@@ -20,7 +21,7 @@ public class TermAgreement {
     @Column(nullable = false, columnDefinition = "BIGINT")
     private BigInteger id;
 
-    @Column(nullable = false, columnDefinition = "TINYINT(1))")
+    @Column(nullable = false, columnDefinition = "TINYINT(1)")
     private boolean agreement;
 
     @ManyToOne(fetch = FetchType.LAZY)

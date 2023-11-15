@@ -1,5 +1,6 @@
 package umc.study.domain.mapping;
 
+
 import lombok.*;
 import umc.study.domain.FoodCategory;
 import umc.study.domain.Member;
