@@ -11,11 +11,12 @@ import umc.study.apiPayload.code.ReasonDTO;
 public enum SuccessStatus implements BaseCode {
 
     // 일반적인 응답
-    _OK(HttpStatus.OK, "COMMON200", "성공입니다.");
+    _OK(HttpStatus.OK, "COMMON200", "성공입니다."),
 
     // 멤버 관련 응답
 
     // ~~~ 관련 응답
+    _EXCEPTION_OK(HttpStatus.OK, "2000", "OK");
 
     private final HttpStatus httpStatus;
     private final String code;
