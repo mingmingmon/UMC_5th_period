@@ -2,28 +2,33 @@ package umc.study.web.dto;
 
 import lombok.Getter;
 import umc.study.domain.enums.SocialType;
+import umc.study.validation.annotation.ExistCategories;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
 
 public class MemberRequestDTO {
-
     @Getter
     public static class JoinDto{
-        String password;
-
+        @NotBlank
         String name;
-
+        @NotNull
         Integer gender;
-
+        @NotNull
+        Integer birthYear;
+        @NotNull
+        Integer birthMonth;
+        @NotNull
+        Integer birthDay;
+        @Size(min = 5, max = 12)
         String address;
-
-        String phone_number;
-
-        String email;
-
-        SocialType socialType;
-
+        @Size(min = 5, max = 12)
+        String specAddress;
+        @ExistCategories
         List<Long> preferCategory;
     }
+
 }

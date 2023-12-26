@@ -30,6 +30,7 @@ dependencies {
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
 	//스웨거
 	implementation 'org.springdoc:springdoc-openapi-ui:1.6.15'
