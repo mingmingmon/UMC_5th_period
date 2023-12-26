@@ -5,6 +5,7 @@ import umc.study.domain.common.BaseEntity;
 import umc.study.domain.enums.Gender;
 import umc.study.domain.enums.MemberStatus;
 import umc.study.domain.enums.SocialType;
+import umc.study.validation.annotation.ExistStore;
 
 import javax.persistence.*;
 import java.math.BigInteger;
@@ -19,14 +20,18 @@ public class Review extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, columnDefinition = "BIGINT")
-    private BigInteger id;
+    @Column(nullable = false)
+    private Long id;
 
     @Column(nullable = false, columnDefinition = "VARCHAR(50)")
     private String title;
 
     @Column(nullable = false, columnDefinition = "VARCHAR(1000)")
     private String content;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "store_id")
+    private Store store;
 
     private Float star_point;
 

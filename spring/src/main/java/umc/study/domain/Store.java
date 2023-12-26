@@ -19,8 +19,8 @@ public class Store extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, columnDefinition = "BIGINT")
-    private BigInteger id;
+    @Column(nullable = false)
+    private Long id;
 
     @Column(nullable = false, columnDefinition = "VARCHAR(50)")
     private String name;

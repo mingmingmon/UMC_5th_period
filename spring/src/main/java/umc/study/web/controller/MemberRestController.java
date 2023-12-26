@@ -1,6 +1,7 @@
 package umc.study.web.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import umc.study.web.dto.MemberResponseDTO;
 import javax.validation.Valid;
 
 @RestController
+@Validated
 @RequiredArgsConstructor
 @RequestMapping("/members")
 public class MemberRestController {
