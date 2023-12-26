@@ -1,5 +1,9 @@
 @rem
+<<<<<<< HEAD
 @rem Copyright 2015 the original author org authors.
+=======
+@rem Copyright 2015 the original author or authors.
+>>>>>>> a5f4cc8cc5fc34d0c976f0ad5c91011f41813f89
 @rem
 @rem Licensed under the Apache License, Version 2.0 (the "License");
 @rem you may not use this file except in compliance with the License.
