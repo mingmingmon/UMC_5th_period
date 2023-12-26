@@ -31,8 +31,9 @@ public enum ErrorStatus implements BaseErrorCode {
 
     STORE_NOT_FOUND(HttpStatus.NOT_FOUND, "STORE400", "해당하는 가게가 없습니다."),
 
-    CEO_NOT_FOUND(HttpStatus.NOT_FOUND, "CEO400", "해당하는 사장님이 없습니다.") ;
+    CEO_NOT_FOUND(HttpStatus.NOT_FOUND, "CEO400", "해당하는 사장님이 없습니다."),
 
+    MISSION_NOT_FOUND(HttpStatus.NOT_FOUND, "CEO400", "해당하는 미션이 없습니다.");
 
 
 
