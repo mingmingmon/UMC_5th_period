@@ -31,4 +31,5 @@ public class Ceo {
 
     @OneToMany(mappedBy = "ceo", cascade = CascadeType.ALL)
     private List<Store> storeList = new ArrayList<>();
+
 }
