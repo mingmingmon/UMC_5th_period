@@ -1,8 +1,10 @@
+server:
+  port: 1234
 spring:
   datasource:
-    url: jdbc:mysql://db-week7.cfu82ornoonr.ap-northeast-2.rds.amazonaws.com:3306/week7
+    url: jdbc:mysql://localhost:3306/week7
     username: root
-    password: j208210722!!!^^
+    password: j208210722!!
     driver-class-name: com.mysql.cj.jdbc.Driver
   sql:
     init:
@@ -15,5 +17,6 @@ spring:
         format_sql: true
         use_sql_comments: true
         hbm2ddl:
-        hbm2ddl.auto: update
+          auto: create
         default_batch_fetch_size: 1000
+
