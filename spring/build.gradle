@@ -1,23 +1,14 @@
 plugins {
 	id 'java'
-<<<<<<< HEAD
 	id 'org.springframework.boot' version '2.7.17'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
-=======
-	id 'org.springframework.boot' version '3.1.7'
-	id 'io.spring.dependency-management' version '1.1.4'
->>>>>>> a5f4cc8cc5fc34d0c976f0ad5c91011f41813f89
 }
 
 group = 'umc'
 version = '0.0.1-SNAPSHOT'
 
 java {
-<<<<<<< HEAD
 	sourceCompatibility = '11'
-=======
-	sourceCompatibility = '17'
->>>>>>> a5f4cc8cc5fc34d0c976f0ad5c91011f41813f89
 }
 
 configurations {
@@ -33,24 +24,14 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-<<<<<<< HEAD
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'//
-=======
->>>>>>> a5f4cc8cc5fc34d0c976f0ad5c91011f41813f89
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-<<<<<<< HEAD
-=======
-tasks.named('bootBuildImage') {
-	builder = 'paketobuildpacks/builder-jammy-base:latest'
-}
-
->>>>>>> a5f4cc8cc5fc34d0c976f0ad5c91011f41813f89
 tasks.named('test') {
 	useJUnitPlatform()
 }
