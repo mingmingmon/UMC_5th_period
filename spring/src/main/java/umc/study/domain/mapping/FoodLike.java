@@ -22,8 +22,8 @@ import java.util.Date;
 public class FoodLike {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, columnDefinition = "BIGINT")
-    private BigInteger id;
+    @Column(nullable = false)
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
@@ -32,5 +32,16 @@ public class FoodLike {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private FoodCategory foodCategory;
+
+    public void setMember(Member member){
+        if(this.member != null)
+            member.getFoodLikeList().remove(this);
+        this.member = member;
+        member.getFoodLikeList().add(this);
+    }
+
+    public void setFoodCategory(FoodCategory foodCategory){
+        this.foodCategory = foodCategory;
+    }
 
 }

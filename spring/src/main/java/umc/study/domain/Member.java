@@ -25,8 +25,8 @@ public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, columnDefinition = "BIGINT")
-    private BigInteger id;
+    @Column(nullable = false)
+    private Long id;
 
     @Column(nullable = false, columnDefinition = "VARCHAR(20)")
     private String password;
@@ -46,9 +46,9 @@ public class Member extends BaseEntity {
     private Integer point;
 
     @Column(nullable = false, columnDefinition = "VARCHAR(15)")
-    private String Phone_number;
+    private String phone_number;
 
-    @Column(nullable = false, columnDefinition = "VARCHAR(50)")
+    //@Column(nullable = false, columnDefinition = "VARCHAR(50)")
     private String email;
 
     @Enumerated(EnumType.STRING)
