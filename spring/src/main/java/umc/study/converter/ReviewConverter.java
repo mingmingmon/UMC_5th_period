@@ -26,6 +26,7 @@ public class ReviewConverter {
 
     private final StoreRepository storeRepository;
 
+
     public  ReviewResponseDTO toDTO(Review review){
         return ReviewResponseDTO.builder()
                 .reviewId(review.getId())
@@ -48,19 +49,11 @@ public class ReviewConverter {
                 .build();
     }
 
-    public StoreResponseDTO.ReviewPreViewDTO toReviewPreViewDTO(Review review){
-        return StoreResponseDTO.ReviewPreViewDTO.builder()
-                .writerNickname(review.getMember().getName())
-                .star_point((review.getStar_point()))
-                .createdAt(review.getCreatedAt().toLocalDate())
-                .context(review.getContent())
-                .build();
-    }
 
     public StoreResponseDTO.ReviewPreViewListDTO toReviewPreViewListDTO(Page<Review> reviewList){
         List<StoreResponseDTO.ReviewPreViewDTO> reviewPreViewDTOList
                 = reviewList.stream()
-                .map(StoreConverter::reviewPreViewDTO)
+                .map(StoreConverter::toReviewPreViewDTO)
                 .collect(Collectors.toList());
 
         return StoreResponseDTO.ReviewPreViewListDTO.builder()
