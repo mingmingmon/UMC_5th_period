@@ -37,7 +37,7 @@ public enum ErrorStatus implements BaseErrorCode {
 
     MISSION_IS_CHALLENGING(HttpStatus.BAD_REQUEST, "MISSION401", "이미 도전중인 미션입니다."),
 
-    ILLEGAL_PAGE_NUMBER(HttpStatus.BAD_REQUEST, "PAGE401", "페이지가 음수 일 수는 없습니다.");
+    ILLEGAL_PAGE_NUMBER(HttpStatus.BAD_REQUEST, "PAGE401", "페이지는 양의 정수여야 합니다.");
 
 
 
