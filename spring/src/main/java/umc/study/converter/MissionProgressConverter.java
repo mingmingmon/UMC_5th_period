@@ -1,6 +1,7 @@
 package umc.study.converter;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import umc.study.domain.Member;
@@ -11,6 +12,10 @@ import umc.study.repository.MissionProgressRepository;
 import umc.study.repository.MissionRepository;
 import umc.study.web.dto.MissionProgressRequestDTO;
 import umc.study.web.dto.MissionProgressResponseDTO;
+import umc.study.web.dto.MissionResponseDTO;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -20,7 +25,7 @@ public class MissionProgressConverter {
 
     private final MemberRepository memberRepository;
 
-    public MissionProgressResponseDTO toDTO(MissionProgress missionProgress){
+    public static MissionProgressResponseDTO toDTO(MissionProgress missionProgress){
         return MissionProgressResponseDTO.builder()
                 .missionProgressId(missionProgress.getId())
                 .createdAt(missionProgress.getCreatedAt())
@@ -38,6 +43,24 @@ public class MissionProgressConverter {
         return MissionProgress.builder()
                 .mission(mission)
                 .member(member)
+                .build();
+    }
+
+    public MissionProgressResponseDTO.MissionProgressListDTO toMissionProgressListDTO(
+            Page<MissionProgress> missionProgressList){
+
+        List<MissionProgressResponseDTO> missionProgressResponseDTOList
+                = missionProgressList.stream()
+                .map(MissionProgressConverter::toDTO)
+                .collect(Collectors.toList());
+
+        return MissionProgressResponseDTO.MissionProgressListDTO.builder()
+                .isLast(missionProgressList.isLast())
+                .isFirst(missionProgressList.isFirst())
+                .totalPage(missionProgressList.getTotalPages())
+                .totalElements(missionProgressList.getTotalElements())
+                .listSize(missionProgressResponseDTOList.size())
+                .missionProgressList(missionProgressResponseDTOList)
                 .build();
     }
 

@@ -21,7 +21,6 @@ import umc.study.domain.Mission;
 import umc.study.service.MissionService;
 import umc.study.validation.annotation.CheckPage;
 import umc.study.validation.annotation.ExistStore;
-import umc.study.validation.annotation.PageOffset;
 import umc.study.web.dto.MissionResponseDTO;
 
 @RestController
