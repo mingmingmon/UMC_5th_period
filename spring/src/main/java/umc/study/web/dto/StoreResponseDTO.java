@@ -39,7 +39,7 @@ public class StoreResponseDTO {
         String writerNickname;
         Float star_point;
         String context;
-        LocalDate createdAt;
+        LocalDateTime createdAt;
     }
 }
 

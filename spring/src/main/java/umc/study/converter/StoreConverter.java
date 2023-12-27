@@ -38,10 +38,12 @@ public class StoreConverter {
                 .build();
     }
 
-    public static StoreResponseDTO.ReviewPreViewDTO reviewPreViewDTO(Review review){
-        return null;
-    }
-    public static StoreResponseDTO.ReviewPreViewListDTO reviewPreViewListDTO(List<Review> reviewList){
-        return null;
+    public static StoreResponseDTO.ReviewPreViewDTO toReviewPreViewDTO(Review review){
+        return StoreResponseDTO.ReviewPreViewDTO.builder()
+                .writerNickname(review.getMember().getName())
+                .star_point((review.getStar_point()))
+                .createdAt(review.getCreatedAt())
+                .context(review.getContent())
+                .build();
     }
 }
