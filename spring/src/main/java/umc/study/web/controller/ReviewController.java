@@ -22,6 +22,7 @@ import umc.study.apiPayload.ApiResponse;
 import umc.study.converter.ReviewConverter;
 import umc.study.domain.Review;
 import umc.study.service.ReviewService;
+import umc.study.validation.annotation.CheckPage;
 import umc.study.validation.annotation.ExistMember;
 import umc.study.validation.annotation.ExistStore;
 import umc.study.web.dto.ReviewRequestDTO;
@@ -64,7 +65,7 @@ public class ReviewController {
     })
     public ApiResponse<StoreResponseDTO.ReviewPreViewListDTO> getReviewList(
             @ExistStore @PathVariable(name = "storeId") Long storeId,
-            @RequestParam(name = "page") Integer page){
+            @CheckPage @RequestParam(name = "page") Integer page){
 
         Page<Review> reviewList = reviewService.getReviewList(storeId, page);
 
@@ -85,7 +86,7 @@ public class ReviewController {
     })
     public ApiResponse<StoreResponseDTO.ReviewPreViewListDTO> getMyReviewList(
             @ExistMember @PathVariable(name = "memberId") Long memberId,
-            @RequestParam(name = "page") Integer page){
+            @CheckPage @RequestParam(name = "page") Integer page){
 
         Page<Review> reviewList = reviewService.getMyReviewList(memberId, page);
 
