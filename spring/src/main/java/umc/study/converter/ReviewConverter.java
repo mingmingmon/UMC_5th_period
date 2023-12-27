@@ -36,7 +36,7 @@ public class ReviewConverter {
 
     public  Review toReview(ReviewRequestDTO reviewRequestDTO){
         Member member = memberRepository.findById(reviewRequestDTO.getMemberId())
-                .orElseThrow(() -> new RuntimeException("Member not found")); // 예외 처리는 상황에 따라 변경 가능
+                .orElseThrow(() -> new RuntimeException("Member not found"));
 
         Store store = storeRepository.getById(reviewRequestDTO.getStoreId());
 
