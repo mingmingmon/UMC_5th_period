@@ -3,11 +3,14 @@ package umc.study.converter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import umc.study.domain.Ceo;
+import umc.study.domain.Review;
 import umc.study.domain.Store;
 import umc.study.repository.CeoRepository;
 import umc.study.repository.StoreRepository;
 import umc.study.web.dto.StoreRequestDTO;
 import umc.study.web.dto.StoreResponseDTO;
+
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
@@ -33,5 +36,12 @@ public class StoreConverter {
                 .score(storeRequestDTO.getScore())
                 .ceo(ceo)
                 .build();
+    }
+
+    public static StoreResponseDTO.ReviewPreViewDTO reviewPreViewDTO(Review review){
+        return null;
+    }
+    public static StoreResponseDTO.ReviewPreViewListDTO reviewPreViewListDTO(List<Review> reviewList){
+        return null;
     }
 }
