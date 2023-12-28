@@ -13,8 +13,14 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class StoreResponseDTO {
-    Long storeId;
+public class MissionResponseDTO {
+    Long missionId;
+
+    String title;
+
+    String content;
+
+    LocalDate deadline;
 
     LocalDateTime createdAt;
 
@@ -22,25 +28,12 @@ public class StoreResponseDTO {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class ReviewPreViewListDTO{
-        List<ReviewPreViewDTO> reviewList;
+    public static class MissionListDTO{
+        List<MissionResponseDTO> misisonList;
         Integer listSize;
         Integer totalPage;
         Long totalElements;
         Boolean isFirst;
         Boolean isLast;
     }
-
-    @Builder
-    @Getter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class ReviewPreViewDTO{
-        String writerNickname;
-        Float star_point;
-        String context;
-        LocalDateTime createdAt;
-    }
 }
-
-
