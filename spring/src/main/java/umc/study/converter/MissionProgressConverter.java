@@ -28,6 +28,8 @@ public class MissionProgressConverter {
     public static MissionProgressResponseDTO toDTO(MissionProgress missionProgress){
         return MissionProgressResponseDTO.builder()
                 .missionProgressId(missionProgress.getId())
+                .missionId(missionProgress.getMission().getId())
+                .missionStatus(missionProgress.getStatus())
                 .createdAt(missionProgress.getCreatedAt())
                 .build();
     }
