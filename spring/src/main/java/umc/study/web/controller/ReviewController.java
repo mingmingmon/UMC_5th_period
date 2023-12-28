@@ -25,7 +25,6 @@ import umc.study.service.ReviewService;
 import umc.study.validation.annotation.CheckPage;
 import umc.study.validation.annotation.ExistMember;
 import umc.study.validation.annotation.ExistStore;
-import umc.study.validation.annotation.PageOffset;
 import umc.study.web.dto.ReviewRequestDTO;
 import umc.study.web.dto.ReviewResponseDTO;
 import umc.study.web.dto.StoreResponseDTO;
